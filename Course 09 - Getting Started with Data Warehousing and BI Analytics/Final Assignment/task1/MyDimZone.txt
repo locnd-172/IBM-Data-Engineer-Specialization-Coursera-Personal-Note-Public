@@ -1,0 +1,4 @@
+MyDimZone
+- zone_id
+- zone_name
+- city

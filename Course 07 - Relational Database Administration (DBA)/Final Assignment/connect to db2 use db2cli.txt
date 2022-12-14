@@ -1,0 +1,1 @@
+db2cli execsql -connString "DATABASE=bludb;UID=lpp23280;PWD=fn9MlDumbqvIYiSy;HOSTNAME=55fbc997-9266-4331-afd3-888b05e734c0.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;port=31929;Security=SSL"

@@ -1,0 +1,132 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6d8491a0-b29b-4eff-a2e6-e3ef1843cecd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%bash\n",
+    "export version=`python --version |awk '{print $2}' |awk -F\".\" '{print $1$2}'`\n",
+    "\n",
+    "echo $version\n",
+    "\n",
+    "if [ $version == '36' ] || [ $version == '37' ]; then\n",
+    "    echo 'Starting installation...'\n",
+    "    pip3 install pyspark==2.4.8 wget==3.2 pyspark2pmml==0.5.1 > install.log 2> install.log\n",
+    "    if [ $? == 0 ]; then\n",
+    "        echo 'Please <<RESTART YOUR KERNEL>> (Kernel->Restart Kernel and Clear All Outputs)'\n",
+    "    else\n",
+    "        echo 'Installation failed, please check log:'\n",
+    "        cat install.log\n",
+    "    fi\n",
+    "elif [ $version == '38' ] || [ $version == '39' ]; then\n",
+    "    pip3 install pyspark==3.1.2 wget==3.2 pyspark2pmml==0.5.1 > install.log 2> install.log\n",
+    "    if [ $? == 0 ]; then\n",
+    "        echo 'Please <<RESTART YOUR KERNEL>> (Kernel->Restart Kernel and Clear All Outputs)'\n",
+    "    else\n",
+    "        echo 'Installation failed, please check log:'\n",
+    "        cat install.log\n",
+    "    fi\n",
+    "else\n",
+    "    echo 'Currently only python 3.6, 3.7 , 3.8 and 3.9 are supported, in case you need a different version please open an issue at https://github.com/IBM/claimed/issues'\n",
+    "    exit -1\n",
+    "fi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "04f88e7c-b00c-4d7b-a0ba-2075fd6e6273",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# @param data_dir temporal data storage for local execution\n",
+    "# @param data_csv csv path and file name (default: data.csv)\n",
+    "# @param data_parquet path and parquet file name (default: data.parquet)\n",
+    "# @param master url of master (default: local mode)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "296bac27-61c0-4332-b974-ff60af45e0cd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pyspark import SparkContext, SparkConf\n",
+    "from pyspark.sql import SparkSession\n",
+    "import os\n",
+    "import shutil\n",
+    "import glob"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e4e36118-5cb8-4ee9-b7da-014950821ff3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data_csv = os.environ.get('data_csv', 'data.csv')\n",
+    "data_parquet = os.environ.get('data_parquet', 'data.parquet')\n",
+    "master = os.environ.get('master', \"local[*]\")\n",
+    "data_dir = os.environ.get('data_dir', '../../data/')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6dd6e600-6549-4e63-8cd6-25595dd780df",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data_parquet = 'trends.parquet'\n",
+    "data_csv = 'trends.csv'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c4aef1f9-82d8-4232-9082-285f8a3f6b15",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sc = SparkContext.getOrCreate(SparkConf().setMaster(master))\n",
+    "spark = SparkSession.builder.getOrCreate()\n",
+    "\n",
+    "df = spark.read.parquet(data_dir + data_parquet)\n",
+    "\n",
+    "if os.path.exists(data_dir + data_csv):\n",
+    "    shutil.rmtree(data_dir + data_csv)\n",
+    "df.coalesce(1).write.option(\"header\", \"true\").csv(data_dir + data_csv)\n",
+    "file = glob.glob(data_dir + data_csv + '/part-*')\n",
+    "shutil.move(file[0], data_dir + data_csv + '.tmp')\n",
+    "shutil.rmtree(data_dir + data_csv)\n",
+    "shutil.move(data_dir + data_csv + '.tmp', data_dir + data_csv)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python",
+   "language": "python",
+   "name": "conda-env-python-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

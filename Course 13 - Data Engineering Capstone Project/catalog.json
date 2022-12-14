@@ -1,0 +1,438 @@
+{"type": "smart phone", "model": "platina", "screen size": 5.5}
+{"type": "smart phone", "model": "bn20", "screen size": 6.5}
+{"type": "smart phone", "model": "cz", "screen size": 6.5}
+{"type": "smart phone", "model": "xm23", "screen size": 5.5}
+{"type": "smart phone", "model": "c3", "screen size": 6.5}
+{"type": "smart phone", "model": "pk2", "screen size": 5.5}
+{"type": "smart phone", "model": "platina", "screen size": 6}
+{"type": "smart phone", "model": "xm23", "screen size": 6}
+{"type": "smart phone", "model": "k9", "screen size": 6.5}
+{"type": "smart phone", "model": "c12", "screen size": 5.5}
+{"type": "smart phone", "model": "k9", "screen size": 6}
+{"type": "smart phone", "model": "platina", "screen size": 6.5}
+{"type": "smart phone", "model": "xm23", "screen size": 6.5}
+{"type": "smart phone", "model": "bn20", "screen size": 5.5}
+{"type": "smart phone", "model": "pk2", "screen size": 6}
+{"type": "smart phone", "model": "c3", "screen size": 6}
+{"type": "smart phone", "model": "bn20", "screen size": 6}
+{"type": "smart phone", "model": "pk2", "screen size": 6.5}
+{"type": "smart phone", "model": "c12", "screen size": 6}
+{"type": "smart phone", "model": "k9", "screen size": 5.5}
+{"type": "smart phone", "model": "c12", "screen size": 6.5}
+{"type": "smart phone", "model": "c3", "screen size": 5.5}
+{"type": "smart phone", "model": "cz", "screen size": 5.5}
+{"type": "smart phone", "model": "cz", "screen size": 6}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 12, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 12, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "qw2", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 15, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ay9", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 17, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "8GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 12, "ram": "16GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "4GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "k12", "screen size": 15, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "jl3", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "zeta", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "k12", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "ki2", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 17, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "jl3", "screen size": 14, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "32GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "c6", "screen size": 14, "ram": "8GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "kz", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 15, "ram": "8GB", "hard disk": "2TB"}
+{"type": "laptop", "model": "kz", "screen size": 14, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "4GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "qw2", "screen size": 14, "ram": "32GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 15, "ram": "32GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "4GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "zeta", "screen size": 14, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "j3", "screen size": 12, "ram": "16GB", "hard disk": "1TB"}
+{"type": "laptop", "model": "j3", "screen size": 17, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "c6", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "laptop", "model": "ay9", "screen size": 12, "ram": "16GB", "hard disk": "500MB"}
+{"type": "television", "model": "jk23", "screen size": 32}
+{"type": "television", "model": "k20", "screen size": 48}
+{"type": "television", "model": "jk23", "screen size": 24}
+{"type": "television", "model": "boom", "screen size": 32}
+{"type": "television", "model": "jk23", "screen size": 40}
+{"type": "television", "model": "ss2", "screen size": 32}
+{"type": "television", "model": "ss2", "screen size": 40}
+{"type": "television", "model": "jk23", "screen size": 55}
+{"type": "television", "model": "k20", "screen size": 55}
+{"type": "television", "model": "boom", "screen size": 24}
+{"type": "television", "model": "jk23", "screen size": 48}
+{"type": "television", "model": "dj1", "screen size": 40}
+{"type": "television", "model": "ss2", "screen size": 48}
+{"type": "television", "model": "k20", "screen size": 32}
+{"type": "television", "model": "boom", "screen size": 40}
+{"type": "television", "model": "boom", "screen size": 48}
+{"type": "television", "model": "k20", "screen size": 40}
+{"type": "television", "model": "k20", "screen size": 24}
+{"type": "television", "model": "ss2", "screen size": 55}
+{"type": "television", "model": "boom", "screen size": 55}
+{"type": "television", "model": "dj1", "screen size": 24}
+{"type": "television", "model": "dj1", "screen size": 32}
+{"type": "television", "model": "dj1", "screen size": 55}
+{"type": "television", "model": "ss2", "screen size": 24}
+{"type": "television", "model": "dj1", "screen size": 48}

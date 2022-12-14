@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0240)https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/CheatSheet/SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md.html?origin=www.coursera.org -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/default.min.css">
+  <style type="text/css">/* this file is used for labs on cognitiveclass.ai that were written in markdown */
+
+/* applies to images, i.e. "![]()" in markdown */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* add padding and margins */
+body {
+  padding: 10px;
+  margin: 10px;
+}
+
+/* applies to tables, i.e. "|--|--|" in markdown */
+table td,
+table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+/* applies to using quotes, i.e. ">" in markdown */
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 1em 10px 0.1em 10px;
+  quotes: '\201C''\201D''\2018''\2019';
+}
+
+/* the headers need some spacing */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  padding-top: 20px;
+}
+
+/* Add padding between nested list item */
+ul > li > ul {
+  padding-bottom: 1rem;
+}
+
+.code-badge-language {
+  display: none;
+}
+.code-badge-copy-icon {
+  background: url('data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJjb3B5IiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY29weSBmYS13LTE0IiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQ0OCA1MTIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTQzMy45NDEgNjUuOTQxbC01MS44ODItNTEuODgyQTQ4IDQ4IDAgMCAwIDM0OC4xMTggMEgxNzZjLTI2LjUxIDAtNDggMjEuNDktNDggNDh2NDhINDhjLTI2LjUxIDAtNDggMjEuNDktNDggNDh2MzIwYzAgMjYuNTEgMjEuNDkgNDggNDggNDhoMjI0YzI2LjUxIDAgNDgtMjEuNDkgNDgtNDh2LTQ4aDgwYzI2LjUxIDAgNDgtMjEuNDkgNDgtNDhWOTkuODgyYTQ4IDQ4IDAgMCAwLTE0LjA1OS0zMy45NDF6TTI2NiA0NjRINTRhNiA2IDAgMCAxLTYtNlYxNTBhNiA2IDAgMCAxIDYtNmg3NHYyMjRjMCAyNi41MSAyMS40OSA0OCA0OCA0OGg5NnY0MmE2IDYgMCAwIDEtNiA2em0xMjgtOTZIMTgyYTYgNiAwIDAgMS02LTZWNTRhNiA2IDAgMCAxIDYtNmgxMDZ2ODhjMCAxMy4yNTUgMTAuNzQ1IDI0IDI0IDI0aDg4djIwMmE2IDYgMCAwIDEtNiA2em02LTI1NmgtNjRWNDhoOS42MzJjMS41OTEgMCAzLjExNy42MzIgNC4yNDMgMS43NTdsNDguMzY4IDQ4LjM2OGE2IDYgMCAwIDEgMS43NTcgNC4yNDNWMTEyeiI+PC9wYXRoPjwvc3ZnPg==');
+  background-size: 100% 100%;
+}
+
+.code-badge {
+  bottom: 0 !important;
+  top: unset !important;
+  background: unset !important;
+}
+
+.code-badge > .code-badge-check-icon {
+  background: green;
+}
+.code-badge-check-icon {
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 0 7px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIiBkYXRhLXByZWZpeD0iZmFzIiBkYXRhLWljb249ImNoZWNrIiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY2hlY2sgZmEtdy0xNiIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9IiYjMTA7ICAgIGNvbG9yOiAjMmFmZjMyOyYjMTA7Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNzMuODk4IDQzOS40MDRsLTE2Ni40LTE2Ni40Yy05Ljk5Ny05Ljk5Ny05Ljk5Ny0yNi4yMDYgMC0zNi4yMDRsMzYuMjAzLTM2LjIwNGM5Ljk5Ny05Ljk5OCAyNi4yMDctOS45OTggMzYuMjA0IDBMMTkyIDMxMi42OSA0MzIuMDk1IDcyLjU5NmM5Ljk5Ny05Ljk5NyAyNi4yMDctOS45OTcgMzYuMjA0IDBsMzYuMjAzIDM2LjIwNGM5Ljk5NyA5Ljk5NyA5Ljk5NyAyNi4yMDYgMCAzNi4yMDRsLTI5NC40IDI5NC40MDFjLTkuOTk4IDkuOTk3LTI2LjIwNyA5Ljk5Ny0zNi4yMDQtLjAwMXoiLz48L3N2Zz4=');
+  background-size: 100% 100%;
+}
+</style></head>
+  <body>
+    <h2>SQL Cheat Sheet: Views, Stored Procedures, Transactions and JOIN statements</h2>
+    <p style="text-align:center;">
+      <img src="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/IDSNlogo.png" width="200" height="200">
+    </p>
+    <table width="100%">
+      <tbody>
+        <tr width="100%">
+          <th style="width:10%">Topic</th>
+          <th style="width:30%;">Syntax</th>
+          <th style="width:30%;">Description</th>
+          <th style="width:30%;">Example</th>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Create View</td>
+          <td style="width:30%;"><code>CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;</code><br></td>
+          <td style="width:30%;">A <code>view</code> is an alternative way of representing data that exists in one or more tables.</td>
+          <td style="width:30%;"><code>CREATE VIEW EMPSALARY AS
+SELECT EMP_ID, F_NAME, L_NAME, B_DATE, SEX, SALARY
+FROM EMPLOYEES;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Update a View</td>
+          <td style="width:30%;"><code>CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;</code><br></td>
+          <td style="width:30%;">The <code>CREATE OR REPLACE</code> VIEW command updates a view.</td>
+          <td style="width:30%;"><code>CREATE OR REPLACE VIEW EMPSALARY AS
+SELECT EMP_ID, F_NAME, L_NAME, B_DATE, SEX, JOB_TITLE, MIN_SALARY, MAX_SALARY
+FROM EMPLOYEES, JOBS
+WHERE EMPLOYEES.JOB_ID = JOBS.JOB_IDENT;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Drop a View</td>
+          <td style="width:30%;"><code>DROP VIEW view_name;</code><br></td>
+          <td style="width:30%;">Use the <code>DROP VIEW</code> statement to remove a view from the database.</td>
+          <td style="width:30%;"><code>DROP VIEW EMPSALARY;</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Stored Procedures on IBM Db2 using SQL</h3>
+    <table width="100%">
+      <tbody>
+        <tr width="100%">
+          <td style="width:10%">Stored Procedures</td>
+          <td style="width:30%;"><code>--#SET TERMINATOR @
+CREATE PROCEDURE PROCEDURE_NAME<p>LANGUAGE</p><p>BEGIN</p></code>
+            <p><code>END
+@</code><br></p>
+          </td>
+          <td style="width:30%;">A <code>stored procedure</code> is a prepared SQL code that you can save, so the code can be reused over and over again.<br>
+            <p>The default terminator for a stored procedure is semicolon(;). To set a different terminator we use <code>SET TERMINATOR</code> clause followed by the terminator such as '@'.</p>
+          </td>
+          <td style="width:30%;"><code>--#SET TERMINATOR @
+CREATE PROCEDURE RETRIEVE_ALL<p>LANGUAGE SQL<br>READS SQL DATA</p><p>DYNAMIC RESULT SETS 1<br>BEGIN</p><p>DECLARE C1 CURSOR<br>WITH RETURN FOR</p><p>SELECT * FROM PETSALE;</p><p>OPEN C1;</p></code>
+            <p><code>END
+@</code></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Stored Procedures in MySQL using phpMyAdmin</h3>
+    <table width="100%">
+      <tbody>
+        <tr width="100%">
+          <td style="width:10%">Stored Procedures</td>
+          <td style="width:30%;"><code><p>DELIMITER //</p><p>CREATE PROCEDURE PROCEDURE_NAME</p><p>BEGIN</p><p>END //</p><p>DELIMITER ;</p></code>
+            <p><code></code><br></p>
+          </td>
+          <td style="width:30%;">A <code>stored procedure</code> is a prepared SQL code that you can save, so the code can be reused over and over again.<br>
+            <p>The default terminator for a stored procedure is semicolon (;). To set a different terminator we use <code>DELIMITER</code> clause followed by the terminator such as $$ or //.</p>
+          </td>
+          <td style="width:30%;"><code>DELIMITER //<p>CREATE PROCEDURE RETRIEVE_ALL()</p><p>BEGIN</p><p>SELECT * FROM PETSALE;</p><p>END //</p></code>
+            <p><code>DELIMITER ;</code></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Joins</h3>
+    <table width="100%">
+      <tbody>
+        <tr width="100%">
+          <td style="width:10%">Cross Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+CROSS JOIN table2;</code><br></td>
+          <td style="width:30%;">The <code>CROSS JOIN</code> is used to generate a paired combination of each row of the first table with each row of the second table.</td>
+          <td style="width:30%;"><code>SELECT DEPT_ID_DEP, LOCT_ID
+FROM DEPARTMENTS
+CROSS JOIN LOCATIONS;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Inner Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+WHERE condition;</code><br></td>
+          <td style="width:30%;">You can use an <code>inner join</code> in a SELECT statement to retrieve only the rows that satisfy the join conditions on every specified table.</td>
+          <td style="width:30%;"><code>select E.F_NAME,E.L_NAME, JH.START_DATE
+from EMPLOYEES as E
+INNER JOIN JOB_HISTORY as JH on E.EMP_ID=JH.EMPL_ID
+where E.DEP_ID ='5';</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Left Outer Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+LEFT OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;</code><br></td>
+          <td style="width:30%;">The <code>LEFT OUTER JOIN</code> will return all records from the left side table and the matching records from the right table.</td>
+          <td style="width:30%;"><code>select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+from EMPLOYEES AS E
+LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Right Outer Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+RIGHT OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;</code><br></td>
+          <td style="width:30%;">The <code>RIGHT OUTER JOIN</code> returns all records from the right table, and the matching records from the left table.</td>
+          <td style="width:30%;"><code>select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+from EMPLOYEES AS E
+RIGHT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Full Outer Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;</code><br></td>
+          <td style="width:30%;">The <code>FULL OUTER JOIN</code> clause results in the inclusion of rows from two tables. If a value is missing when rows are joined, that value is null in the result table.</td>
+          <td style="width:30%;"><code>select E.F_NAME,E.L_NAME,D.DEP_NAME
+from EMPLOYEES AS E
+FULL OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP;</code></td>
+        </tr>
+        <tr width="100%">
+          <td style="width:10%">Self Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;</code><br></td>
+          <td style="width:30%;">A <code>self join</code> is regular join but it can be used to joined with itself.</td>
+          <td style="width:30%;"><code>SELECT B.* FROM EMPLOYEES A JOIN EMPLOYEES B
+ON A.MANAGER_ID = B.MANAGER_ID
+WHERE A.EMP_ID = 'E1001';</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Joins in MySQL using phpMyAdmin</h3>
+    <table width="100%">
+      <tbody>
+        <tr width="100%">
+          <td style="width:10%">Full Outer Join</td>
+          <td style="width:30%;"><code>SELECT column_name(s)
+FROM table1
+LEFT OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition<br><p>UNION</p></code>
+            <p><code>SELECT column_name(s)
+FROM table1
+RIGHT OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition</code><br></p>
+          </td>
+          <td style="width:30%;">The <code>UNION operator</code> is used to combine the result-set of two or more SELECT statements.</td>
+          <td style="width:30%;"><code>select E.F_NAME,E.L_NAME,D.DEP_NAME
+from EMPLOYEES AS E
+LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP<br><p>UNION</p></code>
+            <p><code>select E.F_NAME,E.L_NAME,D.DEP_NAME
+from EMPLOYEES AS E
+RIGHT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP</code></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Author(s)</h2>
+    <p><a href="https://www.linkedin.com/in/mrutyunjaya-naidu-duvvana-4980a3144/?utm_medium=Exinfluencer&amp;utm_source=Exinfluencer&amp;utm_content=000026UJ&amp;utm_term=10006555&amp;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkDB0201ENSkillsNetwork20127838-2022-01-01" target="_blank" rel="external">D.M Naidu</a></p>
+    <h2>Changelog</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2022-10-04</td>
+          <td>1.0</td>
+          <td>D.M.Naidu</td>
+          <td>Initial Version</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/inject.43989f87.js.download"></script>
+    <script src="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/highlight.min.js.download"></script>
+    <script src="./SQL-Cheat-Sheet-For-Views-Stored-Procedures-Transactions-and-JOIN_Statements.md_files/highlightjs-badge.min.js.download"></script>
+  
+
+<style>
+@media print {
+   .code-badge { display: none; }
+}
+    .code-badge-pre {
+        position: relative;
+    }
+    .code-badge {
+        display: flex;
+        flex-direction: row;
+        white-space: normal;
+        background: transparent;
+        background: #333;
+        color: white;
+        font-size: 0.875em;
+        opacity: 0.5;
+        transition: opacity linear 0.5s;
+        border-radius: 0 0 0 7px;
+        padding: 5px 8px 5px 8px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .code-badge.active {
+        opacity: 0.8;
+    }
+
+    .code-badge:hover {
+        opacity: .95;
+    }
+
+    .code-badge a,
+    .code-badge a:hover {
+        text-decoration: none;
+    }
+
+    .code-badge-language {
+        margin-right: 10px;
+        font-weight: 600;
+        color: goldenrod;
+    }
+    .code-badge-copy-icon {
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 0 7px;
+        margin-top:2;
+    }
+    .fa.text-success:{ color: limegreen !important }
+</style><div id="CodeBadgeTemplate" style="display:none">
+    <div class="code-badge">
+        <div class="code-badge-language">{{language}}</div>
+        <div title="Copy to clipboard">
+            <i class="{{copyIconClass}} code-badge-copy-icon"></i>
+        </div>
+     </div>
+</div></body></html>

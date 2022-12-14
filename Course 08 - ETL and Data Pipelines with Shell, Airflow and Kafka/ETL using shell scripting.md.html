@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<!-- saved from url=(0187)https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/ETL%20using%20shell%20scripting.md.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./ETL using shell scripting.md_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./ETL using shell scripting.md_files/default.min.css">
+  <style type="text/css">/* this file is used for labs on cognitiveclass.ai that were written in markdown */
+
+/* applies to images, i.e. "![]()" in markdown */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* add padding and margins */
+body {
+  padding: 10px;
+  margin: 10px;
+}
+
+/* applies to tables, i.e. "|--|--|" in markdown */
+table td,
+table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+/* applies to using quotes, i.e. ">" in markdown */
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 1em 10px 0.1em 10px;
+  quotes: '\201C''\201D''\2018''\2019';
+}
+
+/* the headers need some spacing */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  padding-top: 20px;
+}
+
+/* Add padding between nested list item */
+ul > li > ul {
+  padding-bottom: 1rem;
+}
+
+.code-badge-language {
+  display: none;
+}
+.code-badge-copy-icon {
+  background: url('data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJjb3B5IiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY29weSBmYS13LTE0IiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQ0OCA1MTIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTQzMy45NDEgNjUuOTQxbC01MS44ODItNTEuODgyQTQ4IDQ4IDAgMCAwIDM0OC4xMTggMEgxNzZjLTI2LjUxIDAtNDggMjEuNDktNDggNDh2NDhINDhjLTI2LjUxIDAtNDggMjEuNDktNDggNDh2MzIwYzAgMjYuNTEgMjEuNDkgNDggNDggNDhoMjI0YzI2LjUxIDAgNDgtMjEuNDkgNDgtNDh2LTQ4aDgwYzI2LjUxIDAgNDgtMjEuNDkgNDgtNDhWOTkuODgyYTQ4IDQ4IDAgMCAwLTE0LjA1OS0zMy45NDF6TTI2NiA0NjRINTRhNiA2IDAgMCAxLTYtNlYxNTBhNiA2IDAgMCAxIDYtNmg3NHYyMjRjMCAyNi41MSAyMS40OSA0OCA0OCA0OGg5NnY0MmE2IDYgMCAwIDEtNiA2em0xMjgtOTZIMTgyYTYgNiAwIDAgMS02LTZWNTRhNiA2IDAgMCAxIDYtNmgxMDZ2ODhjMCAxMy4yNTUgMTAuNzQ1IDI0IDI0IDI0aDg4djIwMmE2IDYgMCAwIDEtNiA2em02LTI1NmgtNjRWNDhoOS42MzJjMS41OTEgMCAzLjExNy42MzIgNC4yNDMgMS43NTdsNDguMzY4IDQ4LjM2OGE2IDYgMCAwIDEgMS43NTcgNC4yNDNWMTEyeiI+PC9wYXRoPjwvc3ZnPg==');
+  background-size: 100% 100%;
+}
+
+.code-badge {
+  bottom: 0 !important;
+  top: unset !important;
+  background: unset !important;
+}
+
+.code-badge > .code-badge-check-icon {
+  background: green;
+}
+.code-badge-check-icon {
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 0 7px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIiBkYXRhLXByZWZpeD0iZmFzIiBkYXRhLWljb249ImNoZWNrIiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY2hlY2sgZmEtdy0xNiIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9IiYjMTA7ICAgIGNvbG9yOiAjMmFmZjMyOyYjMTA7Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNzMuODk4IDQzOS40MDRsLTE2Ni40LTE2Ni40Yy05Ljk5Ny05Ljk5Ny05Ljk5Ny0yNi4yMDYgMC0zNi4yMDRsMzYuMjAzLTM2LjIwNGM5Ljk5Ny05Ljk5OCAyNi4yMDctOS45OTggMzYuMjA0IDBMMTkyIDMxMi42OSA0MzIuMDk1IDcyLjU5NmM5Ljk5Ny05Ljk5NyAyNi4yMDctOS45OTcgMzYuMjA0IDBsMzYuMjAzIDM2LjIwNGM5Ljk5NyA5Ljk5NyA5Ljk5NyAyNi4yMDYgMCAzNi4yMDRsLTI5NC40IDI5NC40MDFjLTkuOTk4IDkuOTk3LTI2LjIwNyA5Ljk5Ny0zNi4yMDQtLjAwMXoiLz48L3N2Zz4=');
+  background-size: 100% 100%;
+}
+</style></head>
+  <body>
+    <h1>Hands-on Lab: ETL using shell scripts</h1>
+    <center>
+      <img src="./ETL using shell scripting.md_files/IDSNlogo.png" width="300" alt="cognitiveclass.ai logo">
+    </center>
+    <h1>Hands-on Lab: ETL using shell scripts</h1>
+    <p>Estimated time needed: <strong>30</strong> minutes</p>
+    <h2>Objectives</h2>
+    <p>After completing this lab you will be able to:</p>
+    <ul>
+      <li>Extract data from a delimited file.</li>
+      <li>Transform text data.</li>
+      <li>Load data into a database using shell commands.</li>
+    </ul>
+    <h1>About Skills Network Cloud IDE</h1>
+    <p>Skills Network Cloud IDE (based on Theia and Docker) provides an environment for hands on labs for course and project related labs. Theia is an open source IDE (Integrated Development Environment), that can be run on desktop or on the cloud. to complete this lab, we will be using the Cloud IDE based on Theia and Postgres running in a Docker container.</p>
+    <h2>Important Notice about this lab environment</h2>
+    <p>Please be aware that sessions for this lab environment are not persisted. Every time you connect to this lab, a new environment is created for you. Any data you may have saved in the earlier session would get lost. Plan to complete these labs in a single session, to avoid losing your data.</p>
+    <h1>Getting the environment ready</h1>
+    <p>Open a new terminal, by clicking on the menu bar and selecting <strong>Terminal</strong>-&gt;<strong>New Terminal</strong>, as in the image below.</p>
+    <p>
+      <img src="./ETL using shell scripting.md_files/new-terminal.png" alt="Screenshot highlighting New Terminal in dropdown menu">
+    </p>
+    <p>This will open a new terminal at the bottom of the screen as in the image below.</p>
+    <p>
+      <img src="./ETL using shell scripting.md_files/terminal_bottom_screen.png" alt="Screenshot highlighting new terminal at bottom of screen">
+    </p>
+    <p>Run all the commands on the newly opened terminal. (You can copy the code by clicking on the little copy button on the bottom right of the codeblock below and then paste it, wherever you wish.)</p>
+    <h1>Exercise 1 - Extracting data using <code>cut</code> command</h1>
+    <p>The filter command <code>cut</code> helps us extract selected characters or fields from a line of text.</p>
+    <p><strong>1.1 Extracting characters.</strong></p>
+    <p>The command below shows how to extract the first four characters.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">echo</span></span> <span class="hljs-string"><span class="hljs-string">"database"</span></span> | cut -c<span class="hljs-number"><span class="hljs-number">1</span></span>-<span class="hljs-number"><span class="hljs-number">4</span></span>
+</code></pre>
+    <p></p>
+    <p>You should get the string 'data' as output.</p>
+    <p>The command below shows how to extract 5th to 8th characters.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">echo</span></span> <span class="hljs-string"><span class="hljs-string">"database"</span></span> | cut -c<span class="hljs-number"><span class="hljs-number">5</span></span>-<span class="hljs-number"><span class="hljs-number">8</span></span>
+</code></pre>
+    <p></p>
+    <p>You should get the string 'base' as output.</p>
+    <p>Non-contiguous characters can be extracted using the comma.</p>
+    <p>The command below shows how to extract the 1st and 5th characters.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">echo</span></span> <span class="hljs-string"><span class="hljs-string">"database"</span></span> | cut -c<span class="hljs-number"><span class="hljs-number">1</span></span>,<span class="hljs-number"><span class="hljs-number">5</span></span>
+</code></pre>
+    <p></p>
+    <p>You get the output : 'db'</p>
+    <p><strong>1.2. Extracting fields/columns</strong></p>
+    <p>We can extract a specific column/field from a delimited text file, by mentioning</p>
+    <ul>
+      <li>the delimiter using the <code>-d</code> option, or</li>
+      <li>the field number using the <code>-f</code> option.</li>
+    </ul>
+    <p>The /etc/passwd is a ":" delimited file.</p>
+    <p>The command below extracts user names (the first field) from /etc/passwd.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">awk</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-awk">cut -d<span class="hljs-string">":"</span> -f1 <span class="hljs-regexp">/etc/</span>passwd 
+</code></pre>
+    <p></p>
+    <p>The command below extracts multiple fields 1st, 3rd, and 6th (username, userid, and home directory) from /etc/passwd.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">cut</span></span> -d<span class="hljs-string"><span class="hljs-string">":"</span></span> -f<span class="hljs-number"><span class="hljs-number">1</span></span>,<span class="hljs-number"><span class="hljs-number">3</span></span>,<span class="hljs-number"><span class="hljs-number">6</span></span> /etc/passwd 
+</code></pre>
+    <p></p>
+    <p>The command below extracts a range of fields 3rd to 6th (userid, groupid, user description and home directory) from /etc/passwd.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">cut</span></span> -d<span class="hljs-string"><span class="hljs-string">":"</span></span> -f<span class="hljs-number"><span class="hljs-number">3</span></span>-<span class="hljs-number"><span class="hljs-number">6</span></span> /etc/passwd 
+</code></pre>
+    <p></p>
+    <h1>Exercise 2 - Transforming data using <code>tr</code>.</h1>
+    <p><code>tr</code> is a filter command used to translate, squeeze, and/or delete characters.</p>
+    <p><strong>2.1. Translate from one character set to another</strong></p>
+    <p>The command below translates all lower case alphabets to upper case.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim"><span class="hljs-keyword">echo</span> <span class="hljs-string">"Shell Scripting"</span> | <span class="hljs-keyword">tr</span> <span class="hljs-string">"[a-z]"</span> <span class="hljs-string">"[A-Z]"</span> 
+</code></pre>
+    <p></p>
+    <p>You could also use the pre-defined character sets also for this purpose:</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim"><span class="hljs-keyword">echo</span> <span class="hljs-string">"Shell Scripting"</span> | <span class="hljs-keyword">tr</span> <span class="hljs-string">"[:lower:]"</span> <span class="hljs-string">"[:upper:]"</span> 
+</code></pre>
+    <p></p>
+    <p>The command below translates all upper case alphabets to lower case.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim"><span class="hljs-keyword">echo</span> <span class="hljs-string">"Shell Scripting"</span> | <span class="hljs-keyword">tr</span>  <span class="hljs-string">"[A-Z]"</span> <span class="hljs-string">"[a-z]"</span> 
+</code></pre>
+    <p></p>
+    <p><strong>2.2. Squeeze repeating occurrences of characters</strong></p>
+    <p>The <strong>-s</strong> option replaces a sequence of a repeated characters with a single occurrence of that character.</p>
+    <p>The command below replaces repeat occurrences of 'space' in the output of <code>ps</code> command with one 'space'.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim"><span class="hljs-keyword">ps</span> | <span class="hljs-keyword">tr</span> -s <span class="hljs-string">" "</span>
+</code></pre>
+    <p></p>
+    <p>In the above example, the space character within quotes can be replaced with the following : <code>"[:space:]"</code>.</p>
+    <p><strong>2.3. Delete characters</strong></p>
+    <p>We can delete specified characters using the <code>-d </code>option.</p>
+    <p>The command below deletes all digits.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim"><span class="hljs-keyword">echo</span> <span class="hljs-string">"My login pin is 5634"</span> | <span class="hljs-keyword">tr</span> -d <span class="hljs-string">"[:digit:]"</span>
+</code></pre>
+    <p></p>
+    <p>The output will be : 'My login pin is'</p>
+    <h1>Exercise 3 - Start the PostgreSQL database.</h1>
+    <p>On the terminal run the following command to start the PostgreSQL database.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">ebnf</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-ebnf"><span class="hljs-attribute">start_postgres</span>
+</code></pre>
+    <p></p>
+    <p>Note down the access information presented towards the end of these messages, especially the <strong>CommandLine:</strong>.</p>
+    <p>A sample commandline displayed looks as given below.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">routeros</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-routeros">`psql <span class="hljs-attribute">--username</span>=postgres <span class="hljs-attribute">--host</span>=localhost`
+</code></pre>
+    <p>Running this command from the shell prompt will start the interactive <code>psql</code> client which connects to the PostgreSQL server.</p>
+    <h1>Exercise 4 - Create a table</h1>
+    <p>In this exercise we will create a table called '<strong>users</strong>' in the PostgreSQL database. This table will hold the user account information.</p>
+    <p>The table 'users' will have the following columns:</p>
+    <ol>
+      <li>uname</li>
+      <li>uid</li>
+      <li>home</li>
+    </ol>
+    <p>Step 1: Connect to the database server</p>
+    <p>Use the connection string saved in the previous exercise to connect to the PostgreSQL server.</p>
+    <p>Run the command below to login to PostgreSQL server.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">routeros</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-routeros">psql <span class="hljs-attribute">--username</span>=postgres <span class="hljs-attribute">--host</span>=localhost
+</code></pre>
+    <p></p>
+    <p>You will get the psql prompt: 'postgres=#'</p>
+    <p>Step 2: Connect to a database.</p>
+    <p>We will use a database called <strong>template1</strong> which is already available by default.</p>
+    <p>To connect to this database, run the following command at the 'postgres=#' prompt.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache">\<span class="hljs-attribute"><span class="hljs-attribute">c</span></span> template<span class="hljs-number"><span class="hljs-number">1</span></span>
+</code></pre>
+    <p></p>
+    <p>You will get the following message.</p>
+    <p><code>You are now connected to database "template1" as user "postgres".</code></p>
+    <p>Also, your prompt will change to 'template1=#'.</p>
+    <p>Step 3: Create the table</p>
+    <p>Run the following statement at the 'template1=#' prompt:</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">sql_more</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-sql_more"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">users</span>(username <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>),userid <span class="hljs-built_in">int</span>,homedirectory <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>));
+</code></pre>
+    <p></p>
+    <p>If the table is created successfully, you will get the message below.</p>
+    <p><code>CREATE TABLE</code></p>
+    <p>Step 4: Quit the psql client</p>
+    <p>To exit the psql client and come back to the Linux shell, run the following command:</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">css</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-css">\<span class="hljs-selector-tag"><span class="hljs-selector-tag">q</span></span>
+</code></pre>
+    <p></p>
+    <h1>Exercise 5 - Loading data into a PostgreSQL table.</h1>
+    <p>In this exercise, we will create a shell script which does the following.</p>
+    <ul>
+      <li>Extract the user name, user id, and home directory path of each user account defined in the /etc/passwd file.</li>
+      <li>Save the data into a comma separated (CSV) format.</li>
+      <li>Load the data in the csv file into a table in PostgreSQL database.</li>
+    </ul>
+    <p><strong>5.1. Create a shell script</strong></p>
+    <p>Step 1: On the menu on the lab screen, use <strong>File-&gt;New File</strong> to create a new file.</p>
+    <p>
+      <img src="./ETL using shell scripting.md_files/file_new.png" alt="Screenshot highlighting New file in File dropdown menu">
+    </p>
+    <p>Step 2: Give the name as 'csv2db.sh' and click 'OK'.</p>
+    <p>
+      <img src="./ETL using shell scripting.md_files/file_name.png" alt="">
+    </p>
+    <p>Step 3: State the objective of the script using comments.</p>
+    <p>Copy and paste the following lines into the newly created file.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">gradle</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-gradle"># <span class="hljs-keyword">This</span> script
+# Extracts data <span class="hljs-keyword">from</span> <span class="hljs-regexp">/etc/</span>passwd <span class="hljs-keyword">file</span> <span class="hljs-keyword">into</span> a CSV <span class="hljs-keyword">file</span>.
+
+# The csv data <span class="hljs-keyword">file</span> contains the user name, user id and 
+# home directory of <span class="hljs-keyword">each</span> user account defined in <span class="hljs-regexp">/etc/</span>passwd
+
+# Transforms the text delimiter <span class="hljs-keyword">from</span> <span class="hljs-string">":"</span> to <span class="hljs-string">","</span>.
+# Loads the data <span class="hljs-keyword">from</span> the CSV <span class="hljs-keyword">file</span> <span class="hljs-keyword">into</span> a table in PostgreSQL database.
+
+</code></pre>
+    <p></p>
+    <p>Step 4: Save the file using the <strong>File-&gt;Save</strong> menu option.</p>
+    <p><strong>5.2. Extract required user information from /etc/passwd</strong></p>
+    <p>In this step, we will extract user name (field 1), user id (field 3), and home directory path (field 6) from /etc/passwd file using the <code>cut</code> command.</p>
+    <p>The /etc/passwd has ":" symbol as the column separator.</p>
+    <p>Copy the following lines and add them to the end of the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-comment"><span class="hljs-comment"># Extract phase</span></span>
+
+<span class="hljs-attribute"><span class="hljs-attribute">echo</span></span> <span class="hljs-string"><span class="hljs-string">"Extracting data"</span></span>
+
+<span class="hljs-comment"><span class="hljs-comment"># Extract the columns 1 (user name), 2 (user id) and </span></span>
+<span class="hljs-comment"><span class="hljs-comment"># 6 (home directory path) from /etc/passwd</span></span>
+
+<span class="hljs-attribute"><span class="hljs-attribute">cut</span></span> -d<span class="hljs-string"><span class="hljs-string">":"</span></span> -f<span class="hljs-number"><span class="hljs-number">1</span></span>,<span class="hljs-number"><span class="hljs-number">3</span></span>,<span class="hljs-number"><span class="hljs-number">6</span></span> /etc/passwd 
+</code></pre>
+    <p></p>
+    <p>Save the file.</p>
+    <p>Run the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">mipsasm</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-mipsasm"><span class="hljs-keyword">bash </span>csv2db.<span class="hljs-keyword">sh
+</span></code></pre>
+    <p></p>
+    <p>Verify that the output contains the three fields, that we extracted.</p>
+    <p><strong>5.3. Redirect the extracted output into a file.</strong></p>
+    <p>In this step, we will redirect the extracted data into a file named <code>extracted-data.txt</code></p>
+    <p><em>Replace</em> the cut command at end of the script with the following command.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-attribute"><span class="hljs-attribute">cut</span></span> -d<span class="hljs-string"><span class="hljs-string">":"</span></span> -f<span class="hljs-number"><span class="hljs-number">1</span></span>,<span class="hljs-number"><span class="hljs-number">3</span></span>,<span class="hljs-number"><span class="hljs-number">6</span></span> /etc/passwd &gt; extracted-data.txt
+</code></pre>
+    <p></p>
+    <p>Save the file.</p>
+    <p>Run the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">mipsasm</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-mipsasm"><span class="hljs-keyword">bash </span>csv2db.<span class="hljs-keyword">sh
+</span></code></pre>
+    <p></p>
+    <p>Run the command below to verify that the file <code>extracted-data.txt</code> is created, and has the content.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">cat</span> extracted-<span class="hljs-class"><span class="hljs-keyword">data</span>.txt</span>
+</code></pre>
+    <p></p>
+    <p><strong>5.4. Transform the data into CSV format</strong></p>
+    <p>The extracted columns are separated by the original ":" delimiter.</p>
+    <p>We need to convert this into a "," delimited file.</p>
+    <p>Add the below lines at the end of the script</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">bash</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-bash"><span class="hljs-comment"><span class="hljs-comment"># Transform phase</span></span>
+<span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-string"><span class="hljs-string">"Transforming data"</span></span>
+<span class="hljs-comment"><span class="hljs-comment"># read the extracted data and replace the colons with commas.</span></span>
+
+tr <span class="hljs-string"><span class="hljs-string">":"</span></span> <span class="hljs-string"><span class="hljs-string">","</span></span> &lt; extracted-data.txt
+</code></pre>
+    <p></p>
+    <p>Save the file.</p>
+    <p>Run the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">mipsasm</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-mipsasm"><span class="hljs-keyword">bash </span>csv2db.<span class="hljs-keyword">sh
+</span></code></pre>
+    <p></p>
+    <p>Verify that the output contains ',' in place of ":".</p>
+    <p><em>Replace</em> the tr command at end of the script with the command below.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">tr</span> <span class="hljs-string">":"</span> <span class="hljs-string">","</span> &lt; extracted-<span class="hljs-class"><span class="hljs-keyword">data</span>.txt &gt; transformed-<span class="hljs-keyword">data</span>.csv</span>
+</code></pre>
+    <p></p>
+    <p>Save the file.</p>
+    <p>Run the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">mipsasm</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-mipsasm"><span class="hljs-keyword">bash </span>csv2db.<span class="hljs-keyword">sh
+</span></code></pre>
+    <p></p>
+    <p>Run the command below to verify that the file <code>transformed-data.csv</code> is created, and has the content.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">cat</span> transformed-<span class="hljs-class"><span class="hljs-keyword">data</span>.csv</span>
+</code></pre>
+    <p></p>
+    <p><strong>5.5. Load the data into the table 'users' in PostgreSQL</strong></p>
+    <p>To load data from a shell script, we will use the <code>psql</code> client utility in a non-interactive manner.</p>
+    <p>This is done by sending the database commands through a command pipeline to <code>psql</code> with the help of <code>echo</code> command.</p>
+    <p>Step 1: Add the copy command</p>
+    <p>PostgreSQL command to copy data from a CSV file to a table is <code>COPY</code>.</p>
+    <p>The basic structure of the command which we will use in our script is,</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">pgsql</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-pgsql"><span class="hljs-keyword">COPY</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">FROM</span> <span class="hljs-string">'filename'</span> DELIMITERS <span class="hljs-string">'delimiter_character'</span> <span class="hljs-keyword">FORMAT</span>;
+</code></pre>
+    <p>Now, add the lines below to the end of the script 'csv2db.sh'.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">jboss-cli</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-jboss-cli"><span class="hljs-comment"># Load phase</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Loading data"</span>
+<span class="hljs-comment"># Send the instructions to connect to 'template1' and</span>
+<span class="hljs-comment"># copy the file to the table 'users' through command pipeline.</span>
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"\c template1;\COPY users  FROM '/home/project/transformed-data.csv' DELIMITERS ',' CSV;"</span> | psql <span class="hljs-params">--username=postgres</span> <span class="hljs-params">--host=localhost</span>
+
+</code></pre>
+    <p></p>
+    <p>Save the file.</p>
+    <h1>Exercise 6 - Execute the final script</h1>
+    <p>Run the script.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">mipsasm</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-mipsasm"><span class="hljs-keyword">bash </span>csv2db.<span class="hljs-keyword">sh
+</span></code></pre>
+    <p></p>
+    <p>Run the command below to verify that the table users is populated with the data.</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">routeros</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-routeros">echo <span class="hljs-string">'\c template1; \\SELECT * from users;'</span> | psql <span class="hljs-attribute">--username</span>=postgres <span class="hljs-attribute">--host</span>=localhost
+</code></pre>
+    <p></p>
+    <p>Congratulations! You have created an ETL script using shell scripting.</p>
+    <h1>Practice exercises</h1>
+    <ol>
+      <li>Problem:</li>
+    </ol>
+    <blockquote>
+      <p><em>Copy the data in the file 'web-server-access-log.txt.gz' to the table 'access_log' in the PostgreSQL database 'template1'.</em></p>
+    </blockquote>
+    <blockquote>
+      <p>The file is available at the location : "<a href="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/web-server-access-log.txt.gz" target="_blank" rel="external">https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/web-server-access-log.txt.gz</a>".</p>
+    </blockquote>
+    <blockquote>
+      <p>The following are the columns and their data types in the file:</p>
+    </blockquote>
+    <blockquote>
+      <p>a. timestamp - TIMESTAMP<br>b. latitude - float<br>c. longitude - float<br>d. visitorid - char(37)<br></p>
+    </blockquote>
+    <blockquote>
+      <p>and two more columns: accessed_from_mobile (boolean) and browser_code (int)</p>
+    </blockquote>
+    <blockquote>
+      <p>The columns which we need to copy to the table are the first four coumns : timestamp, latitude, longitude and visitorid.</p>
+    </blockquote>
+    <blockquote>
+      <p>NOTE: The file comes with a header. So use the 'HEADER' option in the 'COPY' command.</p>
+    </blockquote>
+    <blockquote>
+      <p><em>The problem may be solved by completing the following tasks:</em></p>
+    </blockquote>
+    <p><em><strong>Task 1: Start the Postgres server.</strong></em><br></p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Use the start_postgres command.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>If the server is not already started, run the following command:</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">ebnf</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-ebnf"><span class="hljs-attribute">start_postgres</span>
+</code></pre>
+      <p></p>
+    </details>
+    <p><em><strong>Task 2: Create the table.</strong></em><br></p>
+    <p>Create a table named <code>access_log</code> to store the timestamp, latitude, longitude and visitorid.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Connect to the database <code>template1</code> in Postgres and run the 'CREATE TABLE' command.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: Connect to the database:</p>
+      <p>Run the following command at the terminal to connect to Postgres</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">routeros</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-routeros">psql <span class="hljs-attribute">--username</span>=postgres <span class="hljs-attribute">--host</span>=localhost
+</code></pre>
+      <p></p>
+      <p>Step 2: At the <code>postgres=#</code> prompt, run the following command to connect to the database 'template1'.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">abnf</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-abnf">\c template1<span class="hljs-comment">;</span>
+</code></pre>
+      <p></p>
+      <p>Step 3: Once you connect to the database, run the command to create the table called 'access_log':</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">reasonml</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-reasonml">CREATE TABLE access<span class="hljs-constructor">_log(<span class="hljs-params">timestamp</span> TIMESTAMP, <span class="hljs-params">latitude</span> <span class="hljs-params">float</span>, <span class="hljs-params">longitude</span> <span class="hljs-params">float</span>, <span class="hljs-params">visitor_id</span> <span class="hljs-params">char</span>(37)</span>);
+</code></pre>
+      <p></p>
+      <p>Step 4: Once you receive the confirmation message 'CREATE TABLE', quit from psql:</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">css</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-css">\<span class="hljs-selector-tag"><span class="hljs-selector-tag">q</span></span>
+</code></pre>
+      <p></p>
+    </details>
+    <p><em><strong>Task 3. Create a shell script named <code>cp-access-log.sh</code> and add commands to complete the remaining tasks to extract and copy the data to the database.</strong></em><br></p>
+    <p>Create a shell script to add commands to complete the rest of the tasks.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>
+        Use the File-&gt; New File menu option to create a new file and name it according to specification.
+        Add appropriate comments to the script.
+      </p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: On the menu on the lab screen, use <strong>File-&gt;New File</strong> to create a new file.</p>
+      <p>Step 2: Give the name as <code>cp-access-log.sh</code> and click 'OK'.</p>
+      <p>Step 3: State the objective of the script using comments.</p>
+      <p>Copy and paste the following lines into the newly created file.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">pgsql</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-pgsql"># cp-<span class="hljs-keyword">access</span>-<span class="hljs-keyword">log</span>.sh
+# This script downloads the file <span class="hljs-string">'web-server-access-log.txt.gz'</span>
+# <span class="hljs-keyword">from</span> "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/".
+
+# The script <span class="hljs-keyword">then</span> extracts the .txt file <span class="hljs-keyword">using</span> gunzip.
+
+# The .txt file contains the <span class="hljs-type">timestamp</span>, latitude, longitude 
+# <span class="hljs-keyword">and</span> visitor id apart <span class="hljs-keyword">from</span> other data.
+
+# Transforms the <span class="hljs-type">text</span> delimeter <span class="hljs-keyword">from</span> "#" <span class="hljs-keyword">to</span> "," <span class="hljs-keyword">and</span> saves <span class="hljs-keyword">to</span> a csv file.
+# Loads the data <span class="hljs-keyword">from</span> the CSV file <span class="hljs-keyword">into</span> the <span class="hljs-keyword">table</span> <span class="hljs-string">'access_log'</span> <span class="hljs-keyword">in</span> PostgreSQL <span class="hljs-keyword">database</span>.
+
+</code></pre>
+      <p></p>
+      <p>Step 4: Save the file using the <strong>File-&gt;Save</strong> menu option.</p>
+    </details>
+    <p><em><strong>Task 4. Download the access log file.</strong></em><br></p>
+    <p>Add the <code>wget</code> command to the script to download the file.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Refer to the 'wget' command usage</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Add the following line to the end of the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">perl</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-perl"><span class="hljs-comment"><span class="hljs-comment"># Download the access log file</span></span>
+
+wget <span class="hljs-string"><span class="hljs-string">"https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/web-server-access-log.txt.gz"</span></span>
+</code></pre>
+      <p></p>
+    </details>
+    <p><em><strong>Task 5. Unzip the gzip file.</strong></em><br></p>
+    <p>Run the gunzip command to unzip the .gz file and extract the .txt file.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Use the gunzip command with the -f option.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Copy the following lines to the end of the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">applescript</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-applescript"><span class="hljs-comment"># Unzip the file to extract the .txt file.</span>
+gunzip -f web-server-access-<span class="hljs-built_in">log</span>.txt.gz
+
+</code></pre>
+      <p></p>
+      <p>The <strong>-f</strong> option of gunzip is to overwrite the file if it already exists.</p>
+    </details>
+    <p><em><strong>Task 6. Extract required fields from the file.</strong></em><br></p>
+    <p>Extract timestamp, latitude, longitude and visitorid which are the first four fields from the file using the <code>cut</code> command.</p>
+    <p>The columns in the web-server-access-log.txt file is delimited by '#'.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Refer to the usage of cut command.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: Copy the following lines and add them to the end of the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">apache</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-apache"><span class="hljs-comment"><span class="hljs-comment"># Extract phase</span></span>
+
+<span class="hljs-attribute"><span class="hljs-attribute">echo</span></span> <span class="hljs-string"><span class="hljs-string">"Extracting data"</span></span>
+
+<span class="hljs-comment"><span class="hljs-comment"># Extract the columns 1 (timestamp), 2 (latitude), 3 (longitude) and </span></span>
+<span class="hljs-comment"><span class="hljs-comment"># 4 (visitorid)</span></span>
+
+<span class="hljs-attribute"><span class="hljs-attribute">cut</span></span> -d<span class="hljs-string"><span class="hljs-string">"#"</span></span> -f<span class="hljs-number"><span class="hljs-number">1</span></span>-<span class="hljs-number"><span class="hljs-number">4</span></span> web-server-access-log.txt  
+
+</code></pre>
+      <p></p>
+      <p>Step 2: Save the file.</p>
+      <p>Step 3: Run the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim">bash <span class="hljs-keyword">cp</span>-access-<span class="hljs-built_in">log</span>.<span class="hljs-keyword">sh</span>
+
+</code></pre>
+      <p></p>
+      <p>Verify that the output contains all the four fields that we extracted.</p>
+    </details>
+    <p><em><strong>Task 7. Redirect the extracted output into a file.</strong></em><br></p>
+    <p>Redirect the extracted data into a file named <code>extracted-data.txt</code></p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Use '&gt;' for shell command output redirection.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: <em>Replace</em> the cut command at end of the script with the following command.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">pgsql</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-pgsql">cut -d"#" -f1<span class="hljs-number">-4</span> web-<span class="hljs-keyword">server</span>-<span class="hljs-keyword">access</span>-<span class="hljs-keyword">log</span>.txt &gt; extracted-data.txt
+
+</code></pre>
+      <p></p>
+      <p>Step 2: Save the file.</p>
+      <p>Step 3: Run the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim">bash <span class="hljs-keyword">cp</span>-access-<span class="hljs-built_in">log</span>.<span class="hljs-keyword">sh</span>
+
+</code></pre>
+      <p></p>
+      <p>Step 4: Run the command below to verify that the file <code>extracted-data.txt</code> is created, and has the content.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">cat</span> extracted-<span class="hljs-class"><span class="hljs-keyword">data</span>.txt</span>
+
+</code></pre>
+      <p></p>
+    </details>
+    <p><em><strong>Task 8. Transform the data into CSV format.</strong></em><br></p>
+    <p>The extracted columns are separated by the original "#" delimiter.</p>
+    <p>We need to convert this into a "," delimited file.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Use 'tr' command for transformation.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: Add the lines below at the end of the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">bash</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-bash"><span class="hljs-comment"><span class="hljs-comment"># Transform phase</span></span>
+<span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-string"><span class="hljs-string">"Transforming data"</span></span>
+
+<span class="hljs-comment"><span class="hljs-comment"># read the extracted data and replace the colons with commas.</span></span>
+tr <span class="hljs-string"><span class="hljs-string">"#"</span></span> <span class="hljs-string"><span class="hljs-string">","</span></span> &lt; extracted-data.txt
+
+</code></pre>
+      <p></p>
+      <p>Step 2: Save the file.</p>
+      <p>Step 3: Run the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim">bash <span class="hljs-keyword">cp</span>-access-<span class="hljs-built_in">log</span>.<span class="hljs-keyword">sh</span>
+
+</code></pre>
+      <p></p>
+      <p>Step 4: Verify that the output contains ',' in place of "#".</p>
+      <p>Now we need to save the transformed data to a .csv file.</p>
+      <p>Step 5: <em>Replace</em> the tr command at end of the script with the command below.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">tr</span> <span class="hljs-string">"#"</span> <span class="hljs-string">","</span> &lt; extracted-<span class="hljs-class"><span class="hljs-keyword">data</span>.txt &gt; transformed-<span class="hljs-keyword">data</span>.csv</span>
+
+</code></pre>
+      <p></p>
+      <p>Step 6: Save the file.</p>
+      <p>Step 7: Run the script.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim">bash <span class="hljs-keyword">cp</span>-access-<span class="hljs-built_in">log</span>.<span class="hljs-keyword">sh</span>
+
+</code></pre>
+      <p></p>
+      <p>Step 8: Run the command below to verify that the file 'transformed-data.csv' is created, and has the content.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">haskell</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-haskell"><span class="hljs-title">cat</span> transformed-<span class="hljs-class"><span class="hljs-keyword">data</span>.csv</span>
+</code></pre>
+      <p></p>
+    </details>
+    <p><em><strong>Task 9. Load the data into the table <code>access_log</code> in PostgreSQL</strong></em><br></p>
+    <p>PostgreSQL command to copy data from a CSV file to a table is <code>COPY</code>.</p>
+    <p>The basic structure of the command is,</p>
+    <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">pgsql</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-pgsql"><span class="hljs-keyword">COPY</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">FROM</span> <span class="hljs-string">'filename'</span> DELIMITERS <span class="hljs-string">'delimiter_character'</span> <span class="hljs-keyword">FORMAT</span>;
+</code></pre>
+    <p>The file comes with a header. So use the 'HEADER' option in the 'COPY' command.</p>
+    <p>Invoke this command from the shellscript, by sending it as input to 'psql' filter command.</p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>To load data from a shell script, send the database commands through a command pipeline to <code>psql</code> command with the help of <code>echo</code> command.</p>
+      <p>E.g.: echo '<em>psql commands</em>' | psql</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Step 1: Add the copy command</p>
+      <p>Add the lines below to the end of the script 'cp-access-log.sh'.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">jboss-cli</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-jboss-cli"><span class="hljs-comment"># Load phase</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Loading data"</span>
+
+<span class="hljs-comment"># Send the instructions to connect to 'template1' and</span>
+<span class="hljs-comment"># copy the file to the table 'access_log' through command pipeline.</span>
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"\c template1;\COPY access_log  FROM '/home/project/transformed-data.csv' DELIMITERS ',' CSV HEADER;"</span> | psql <span class="hljs-params">--username=postgres</span> <span class="hljs-params">--host=localhost</span>
+
+</code></pre>
+      <p></p>
+      <p>Step 2: Save the file.</p>
+    </details>
+    <p><em><strong>Task 10. Execute the final script.</strong></em><br></p>
+    <p>Run the final script.</p>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Run the following command at the terminal:</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">vim</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-vim">bash <span class="hljs-keyword">cp</span>-access-<span class="hljs-built_in">log</span>.<span class="hljs-keyword">sh</span>
+</code></pre>
+      <p></p>
+      <p>The bash script can be downloaded from <a href="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/cp-access-log.sh?utm_medium=Exinfluencer&amp;utm_source=Exinfluencer&amp;utm_content=000026UJ&amp;utm_term=10006555&amp;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDB0250ENSkillsNetwork26764073-2022-01-01">here</a></p>
+    </details>
+    <p><em><strong>Task 11. Verify by querying the database.</strong></em></p>
+    <details>
+      <summary>Click here for Hint</summary>
+      <p>Run the 'select' statement through 'psql' with the help of command pipeline.</p>
+    </details>
+    <details>
+      <summary>Click here for Solution</summary>
+      <p>Run the command below at the shell prompt to verify that the table accesss_log is populated with the data.</p>
+      <pre class="code-badge-pre"><div class="code-badge">
+        <div class="code-badge-language">routeros</div>
+        <div title="Copy to clipboard">
+            <i class="code-badge-copy-icon code-badge-copy-icon"></i>
+        </div>
+     </div><code class="hljs language-routeros">echo <span class="hljs-string">'\c template1; \\SELECT * from access_log;'</span> | psql <span class="hljs-attribute">--username</span>=postgres <span class="hljs-attribute">--host</span>=localhost
+</code></pre>
+      <p></p>
+      <p>You should see the records displayed on screen.</p>
+    </details>
+    <h2>Authors</h2>
+    <p>Ramesh Sannareddy</p>
+    <h3>Other Contributors</h3>
+    <p>Rav Ahuja</p>
+    <h2>Change Log</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date (YYYY-MM-DD)</th>
+          <th>Version</th>
+          <th>Changed By</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2022-07-27</td>
+          <td>0.3</td>
+          <td>Lakshmi Holla</td>
+          <td>Updated Linux command</td>
+        </tr>
+        <tr>
+          <td>2021-09-06</td>
+          <td>0.2</td>
+          <td>Ramesh Sannareddy</td>
+          <td>Incorporated the beta feedback.</td>
+        </tr>
+        <tr>
+          <td>2021-06-07</td>
+          <td>0.1</td>
+          <td>Ramesh Sannareddy</td>
+          <td>Created initial version of the lab</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Copyright (c) 2021 IBM Corporation. All rights reserved.</p>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="./ETL using shell scripting.md_files/inject.43989f87.js.download"></script>
+    <script src="./ETL using shell scripting.md_files/highlight.min.js.download"></script>
+    <script src="./ETL using shell scripting.md_files/highlightjs-badge.min.js.download"></script>
+  
+
+<style>
+@media print {
+   .code-badge { display: none; }
+}
+    .code-badge-pre {
+        position: relative;
+    }
+    .code-badge {
+        display: flex;
+        flex-direction: row;
+        white-space: normal;
+        background: transparent;
+        background: #333;
+        color: white;
+        font-size: 0.875em;
+        opacity: 0.5;
+        transition: opacity linear 0.5s;
+        border-radius: 0 0 0 7px;
+        padding: 5px 8px 5px 8px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .code-badge.active {
+        opacity: 0.8;
+    }
+
+    .code-badge:hover {
+        opacity: .95;
+    }
+
+    .code-badge a,
+    .code-badge a:hover {
+        text-decoration: none;
+    }
+
+    .code-badge-language {
+        margin-right: 10px;
+        font-weight: 600;
+        color: goldenrod;
+    }
+    .code-badge-copy-icon {
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 0 7px;
+        margin-top:2;
+    }
+    .fa.text-success:{ color: limegreen !important }
+</style><div id="CodeBadgeTemplate" style="display:none">
+    <div class="code-badge">
+        <div class="code-badge-language">{{language}}</div>
+        <div title="Copy to clipboard">
+            <i class="{{copyIconClass}} code-badge-copy-icon"></i>
+        </div>
+     </div>
+</div></body></html>

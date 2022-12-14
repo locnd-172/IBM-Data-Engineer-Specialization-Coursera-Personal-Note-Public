@@ -1,0 +1,4 @@
+MyDimWaste
+- waste_id
+- waste_type
+- waste_tons

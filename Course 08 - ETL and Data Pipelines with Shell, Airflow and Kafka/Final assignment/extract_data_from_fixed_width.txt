@@ -1,0 +1,1 @@
+awk '{print $10,$12}' payment-data.txt

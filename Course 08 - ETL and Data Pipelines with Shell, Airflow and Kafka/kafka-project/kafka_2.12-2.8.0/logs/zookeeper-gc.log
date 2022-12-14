@@ -1,0 +1,239 @@
+<?xml version="1.0" ?>
+
+<verbosegc xmlns="http://www.ibm.com/j9/verbosegc" version="162e6f729_CMPRSS">
+
+<initialized id="1" timestamp="2022-10-20T04:42:51.639">
+  <attribute name="gcPolicy" value="-Xgcpolicy:gencon" />
+  <attribute name="maxHeapSize" value="0x20000000" />
+  <attribute name="initialHeapSize" value="0x20000000" />
+  <attribute name="compressedRefs" value="true" />
+  <attribute name="compressedRefsDisplacement" value="0x0" />
+  <attribute name="compressedRefsShift" value="0x3" />
+  <attribute name="pageSize" value="0x1000" />
+  <attribute name="pageType" value="not used" />
+  <attribute name="requestedPageSize" value="0x1000" />
+  <attribute name="requestedPageType" value="not used" />
+  <attribute name="gcthreads" value="2" />
+  <attribute name="gcthreads Concurrent Mark" value="1" />
+  <attribute name="packetListSplit" value="1" />
+  <attribute name="cacheListSplit" value="1" />
+  <attribute name="splitFreeListSplitAmount" value="1" />
+  <attribute name="numaNodes" value="0" />
+  <system>
+    <attribute name="physicalMemory" value="3999997952" />
+    <attribute name="numCPUs" value="8" />
+    <attribute name="architecture" value="amd64" />
+    <attribute name="os" value="Linux" />
+    <attribute name="osVersion" value="4.15.0-193-generic" />
+  </system>
+  <vmargs>
+    <vmarg name="-Xoptionsfile=/usr/lib/jvm/java-jdk-11.0.11+9/lib/options.default" />
+    <vmarg name="-Xlockword:mode=default,noLockword=java/lang/String,noLockword=java/util/MapEntry,noLockword=java/util/HashMap$Entry,noLockword..." />
+    <vmarg name="-Xjcl:jclse29" />
+    <vmarg name="-Dcom.ibm.oti.vm.bootstrap.library.path=/usr/lib/jvm/java-jdk-11.0.11+9/lib/default:/usr/lib/jvm/java-jdk-11.0.11+9/lib" />
+    <vmarg name="-Dsun.boot.library.path=/usr/lib/jvm/java-jdk-11.0.11+9/lib/default:/usr/lib/jvm/java-jdk-11.0.11+9/lib" />
+    <vmarg name="-Djava.library.path=/usr/lib/jvm/java-jdk-11.0.11+9/lib/default:/usr/lib/jvm/java-jdk-11.0.11+9/lib:/home/theia/dsdriver/lib:/u..." />
+    <vmarg name="-Djava.home=/usr/lib/jvm/java-jdk-11.0.11+9" />
+    <vmarg name="-Duser.dir=/home/project/kafka_2.12-2.8.0" />
+    <vmarg name="-Djava.class.path=/home/theia/dsdriver/tools/clpplus.jar:/home/theia/dsdriver/tools/jline-0.9.93.jar:/home/theia/dsdriver/tools..." />
+    <vmarg name="-Xmx512M" />
+    <vmarg name="-Xms512M" />
+    <vmarg name="-XX:+UseG1GC" />
+    <vmarg name="-XX:MaxGCPauseMillis=20" />
+    <vmarg name="-XX:InitiatingHeapOccupancyPercent=35" />
+    <vmarg name="-XX:+ExplicitGCInvokesConcurrent" />
+    <vmarg name="-XX:MaxInlineLevel=15" />
+    <vmarg name="-Djava.awt.headless=true" />
+    <vmarg name="-Xlog:gc*:file=/home/project/kafka_2.12-2.8.0/bin/../logs/zookeeper-gc.log:time,tags:filecount=10,filesize=100M" />
+    <vmarg name="-Dcom.sun.management.jmxremote" />
+    <vmarg name="-Dcom.sun.management.jmxremote.authenticate=false" />
+    <vmarg name="-Dcom.sun.management.jmxremote.ssl=false" />
+    <vmarg name="-Dkafka.logs.dir=/home/project/kafka_2.12-2.8.0/bin/../logs" />
+    <vmarg name="-Dlog4j.configuration=file:bin/../config/log4j.properties" />
+    <vmarg name="-Djava.class.path=/home/theia/dsdriver/tools/clpplus.jar:/home/theia/dsdriver/tools/jline-0.9.93.jar:/home/theia/dsdriver/tools..." />
+    <vmarg name="-Dsun.java.command=org.apache.zookeeper.server.quorum.QuorumPeerMain config/zookeeper.properties" />
+    <vmarg name="-Dsun.java.launcher=SUN_STANDARD" />
+    <vmarg name="-Dsun.java.launcher.pid=909" />
+  </vmargs>
+</initialized>
+
+<exclusive-start id="2" timestamp="2022-10-20T04:46:51.230" intervalms="239590.272">
+  <response-info timems="0.054" idlems="0.054" threads="0" lastid="0000000000335600" lastname="VM Runtime State Listener" />
+</exclusive-start>
+<sys-start reason="vm idle" id="3" timestamp="2022-10-20T04:46:51.230" intervalms="239590.408" />
+<cycle-start id="4" type="global" contextid="0" timestamp="2022-10-20T04:46:51.230" intervalms="239590.448" />
+<gc-start id="5" type="global" contextid="4" timestamp="2022-10-20T04:46:51.230">
+  <mem-info id="6" free="432457272" total="536870912" percent="80">
+    <mem type="nursery" free="30588112" total="134217728" percent="22">
+      <mem type="allocate" free="30588112" total="67108864" percent="45" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401869160" total="402653184" percent="99">
+      <mem type="soa" free="381736296" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <remembered-set count="10005" />
+  </mem-info>
+</gc-start>
+<allocation-stats totalBytes="37251344" >
+  <allocated-bytes non-tlh="4475336" tlh="32776008" />
+  <largest-consumer threadName="main" threadId="0000000000015200" bytes="27344880" />
+</allocation-stats>
+<gc-op id="7" type="mark" timems="25.960" contextid="4" timestamp="2022-10-20T04:46:51.256">
+  <trace-info objectcount="81624" scancount="66057" scanbytes="2170604" />
+  <finalization candidates="114" enqueued="0" />
+  <ownableSynchronizers candidates="29" cleared="0" />
+  <references type="soft" candidates="3205" cleared="0" enqueued="0" dynamicThreshold="32" maxThreshold="32" />
+  <references type="weak" candidates="3784" cleared="1436" enqueued="1179" />
+  <references type="phantom" candidates="359" cleared="20" enqueued="20" />
+  <stringconstants candidates="6847" cleared="3"  />
+  <object-monitors candidates="7" cleared="0"  />
+</gc-op>
+<gc-op id="8" type="classunload" timems="0.020" contextid="4" timestamp="2022-10-20T04:46:51.256">
+  <classunload-info classloadercandidates="12" classloadersunloaded="0" classesunloaded="0" anonymousclassesunloaded="0" quiescems="0.000" setupms="0.018" scanms="0.001" postms="0.001" />
+</gc-op>
+<gc-op id="9" type="sweep" timems="1.618" contextid="4" timestamp="2022-10-20T04:46:51.258" />
+<gc-end id="10" type="global" contextid="4" durationms="27.971" usertimems="25.733" systemtimems="0.673" stalltimems="15.862" timestamp="2022-10-20T04:46:51.258" activeThreads="2">
+  <mem-info id="11" free="460916568" total="536870912" percent="85">
+    <mem type="nursery" free="59047408" total="134217728" percent="43">
+      <mem type="allocate" free="59047408" total="67108864" percent="87" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401869160" total="402653184" percent="99" micro-fragmented="4608" macro-fragmented="0">
+      <mem type="soa" free="381736296" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <pending-finalizers system="0" default="0" reference="1199" classloader="0" />
+    <remembered-set count="9922" />
+  </mem-info>
+</gc-end>
+<cycle-end id="12" type="global" contextid="4" timestamp="2022-10-20T04:46:51.258" />
+<sys-end id="13" timestamp="2022-10-20T04:46:51.258" />
+<exclusive-end id="14" timestamp="2022-10-20T04:46:51.258" durationms="28.712" />
+
+<heap-resize id="15" type="release free pages" space="tenure" amount="401862656" count="1" timems="0.185" reason="idle" timestamp="2022-10-20T04:46:51.259" />
+<exclusive-start id="16" timestamp="2022-10-20T04:57:09.694" intervalms="618464.450">
+  <response-info timems="0.052" idlems="0.052" threads="0" lastid="0000000000335600" lastname="VM Runtime State Listener" />
+</exclusive-start>
+<sys-start reason="vm idle" id="17" timestamp="2022-10-20T04:57:09.694" intervalms="618464.445" />
+<cycle-start id="18" type="global" contextid="0" timestamp="2022-10-20T04:57:09.694" intervalms="618464.434" />
+<gc-start id="19" type="global" contextid="18" timestamp="2022-10-20T04:57:09.695">
+  <mem-info id="20" free="457190448" total="536870912" percent="85">
+    <mem type="nursery" free="55321384" total="134217728" percent="41">
+      <mem type="allocate" free="55321384" total="67108864" percent="82" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401869064" total="402653184" percent="99">
+      <mem type="soa" free="381736200" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <remembered-set count="9923" />
+  </mem-info>
+</gc-start>
+<allocation-stats totalBytes="3650424" >
+  <allocated-bytes non-tlh="2654240" tlh="996184" />
+  <largest-consumer threadName="Attach API wait loop" threadId="0000000000359800" bytes="239408" />
+</allocation-stats>
+<gc-op id="21" type="mark" timems="9.130" contextid="18" timestamp="2022-10-20T04:57:09.704">
+  <trace-info objectcount="79054" scancount="64010" scanbytes="2172940" />
+  <finalization candidates="114" enqueued="0" />
+  <ownableSynchronizers candidates="29" cleared="0" />
+  <references type="soft" candidates="3205" cleared="0" enqueued="0" dynamicThreshold="31" maxThreshold="32" />
+  <references type="weak" candidates="2348" cleared="0" enqueued="0" />
+  <references type="phantom" candidates="345" cleared="6" enqueued="6" />
+  <stringconstants candidates="6844" cleared="0"  />
+  <object-monitors candidates="7" cleared="0"  />
+</gc-op>
+<gc-op id="22" type="classunload" timems="0.008" contextid="18" timestamp="2022-10-20T04:57:09.704">
+  <classunload-info classloadercandidates="12" classloadersunloaded="0" classesunloaded="0" anonymousclassesunloaded="0" quiescems="0.000" setupms="0.006" scanms="0.001" postms="0.001" />
+</gc-op>
+<gc-op id="23" type="sweep" timems="1.023" contextid="18" timestamp="2022-10-20T04:57:09.705" />
+<mem-info id="24" free="461019096" total="536870912" percent="85">
+  <mem type="nursery" free="59150032" total="134217728" percent="44">
+    <mem type="allocate" free="59150032" total="67108864" percent="88" />
+    <mem type="survivor" free="0" total="67108864" percent="0" />
+  </mem>
+  <mem type="tenure" free="401869064" total="402653184" percent="99" micro-fragmented="4608" macro-fragmented="0">
+    <mem type="soa" free="381736200" total="382520320" percent="99" />
+    <mem type="loa" free="20132864" total="20132864" percent="100" />
+  </mem>
+  <pending-finalizers system="0" default="0" reference="6" classloader="0" />
+  <remembered-set count="9923" />
+</mem-info>
+<gc-op id="25" type="compact" timems="19.282" contextid="18" timestamp="2022-10-20T04:57:09.724">
+  <compact-info movecount="75396" movebytes="6316264" reason="compact on aggressive collection" />
+</gc-op>
+<gc-end id="26" type="global" contextid="18" durationms="29.845" usertimems="55.015" systemtimems="1.871" stalltimems="0.846" timestamp="2022-10-20T04:57:09.724" activeThreads="2">
+  <mem-info id="27" free="463261264" total="536870912" percent="86">
+    <mem type="nursery" free="61386592" total="134217728" percent="45">
+      <mem type="allocate" free="61386592" total="67108864" percent="91" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401874672" total="402653184" percent="99">
+      <mem type="soa" free="381741808" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <pending-finalizers system="0" default="0" reference="6" classloader="0" />
+    <remembered-set count="9923" />
+  </mem-info>
+</gc-end>
+<cycle-end id="28" type="global" contextid="18" timestamp="2022-10-20T04:57:09.725" />
+<sys-end id="29" timestamp="2022-10-20T04:57:09.725" />
+<exclusive-end id="30" timestamp="2022-10-20T04:57:09.725" durationms="30.475" />
+
+<heap-resize id="31" type="release free pages" space="tenure" amount="401866752" count="1" timems="0.031" reason="idle" timestamp="2022-10-20T04:57:09.725" />
+<exclusive-start id="32" timestamp="2022-10-20T05:12:40.382" intervalms="930687.967">
+  <response-info timems="0.042" idlems="0.042" threads="0" lastid="0000000000335600" lastname="VM Runtime State Listener" />
+</exclusive-start>
+<sys-start reason="vm idle" id="33" timestamp="2022-10-20T05:12:40.382" intervalms="930687.974" />
+<cycle-start id="34" type="global" contextid="0" timestamp="2022-10-20T05:12:40.382" intervalms="930687.976" />
+<gc-start id="35" type="global" contextid="34" timestamp="2022-10-20T05:12:40.382">
+  <mem-info id="36" free="457889056" total="536870912" percent="85">
+    <mem type="nursery" free="56014384" total="134217728" percent="41">
+      <mem type="allocate" free="56014384" total="67108864" percent="83" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401874672" total="402653184" percent="99">
+      <mem type="soa" free="381741808" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <remembered-set count="9923" />
+  </mem-info>
+</gc-start>
+<allocation-stats totalBytes="5347080" >
+  <allocated-bytes non-tlh="2515776" tlh="2831304" />
+  <largest-consumer threadName="Attach API wait loop" threadId="0000000000359800" bytes="288728" />
+</allocation-stats>
+<gc-op id="37" type="mark" timems="7.428" contextid="34" timestamp="2022-10-20T05:12:40.390">
+  <trace-info objectcount="79050" scancount="63990" scanbytes="2172876" />
+  <finalization candidates="114" enqueued="0" />
+  <ownableSynchronizers candidates="29" cleared="0" />
+  <references type="soft" candidates="3205" cleared="0" enqueued="0" dynamicThreshold="31" maxThreshold="32" />
+  <references type="weak" candidates="2348" cleared="0" enqueued="0" />
+  <references type="phantom" candidates="347" cleared="8" enqueued="8" />
+  <stringconstants candidates="6844" cleared="0"  />
+  <object-monitors candidates="7" cleared="0"  />
+</gc-op>
+<gc-op id="38" type="classunload" timems="0.004" contextid="34" timestamp="2022-10-20T05:12:40.390">
+  <classunload-info classloadercandidates="12" classloadersunloaded="0" classesunloaded="0" anonymousclassesunloaded="0" quiescems="0.000" setupms="0.003" scanms="0.001" postms="0.000" />
+</gc-op>
+<gc-op id="39" type="sweep" timems="0.775" contextid="34" timestamp="2022-10-20T05:12:40.391" />
+<gc-end id="40" type="global" contextid="34" durationms="8.438" usertimems="15.729" systemtimems="0.357" stalltimems="0.579" timestamp="2022-10-20T05:12:40.391" activeThreads="2">
+  <mem-info id="41" free="463254880" total="536870912" percent="86">
+    <mem type="nursery" free="61380208" total="134217728" percent="45">
+      <mem type="allocate" free="61380208" total="67108864" percent="91" />
+      <mem type="survivor" free="0" total="67108864" percent="0" />
+    </mem>
+    <mem type="tenure" free="401874672" total="402653184" percent="99" micro-fragmented="0" macro-fragmented="0">
+      <mem type="soa" free="381741808" total="382520320" percent="99" />
+      <mem type="loa" free="20132864" total="20132864" percent="100" />
+    </mem>
+    <pending-finalizers system="0" default="0" reference="8" classloader="0" />
+    <remembered-set count="9923" />
+  </mem-info>
+</gc-end>
+<cycle-end id="42" type="global" contextid="34" timestamp="2022-10-20T05:12:40.391" />
+<sys-end id="43" timestamp="2022-10-20T05:12:40.391" />
+<exclusive-end id="44" timestamp="2022-10-20T05:12:40.391" durationms="8.984" />
+
+<heap-resize id="45" type="release free pages" space="tenure" amount="401866752" count="1" timems="0.029" reason="idle" timestamp="2022-10-20T05:12:40.391" />
